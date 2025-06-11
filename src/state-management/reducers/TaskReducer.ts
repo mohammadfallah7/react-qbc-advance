@@ -13,7 +13,7 @@ type DeleteTaskAction = {
   id: number;
 };
 
-type TaskAction = AddTaskAction | DeleteTaskAction;
+export type TaskAction = AddTaskAction | DeleteTaskAction;
 
 const tasksReducer = (tasks: Task[], action: TaskAction): Task[] => {
   switch (action.type) {

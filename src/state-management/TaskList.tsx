@@ -1,9 +1,12 @@
-import { useReducer } from "react";
-import tasksReducer from "./reducers/TaskReducer";
+import { type Dispatch } from "react";
+import { type Task, type TaskAction } from "./reducers/TaskReducer";
 
-const TaskList = () => {
-  const [tasks, dispatch] = useReducer(tasksReducer, []);
+interface Props {
+  tasks: Task[];
+  dispatch: Dispatch<TaskAction>;
+}
 
+const TaskList = ({ tasks, dispatch }: Props) => {
   return (
     <>
       <button
