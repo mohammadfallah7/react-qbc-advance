@@ -1,15 +1,14 @@
-import { useReducer } from "react";
-import authReducer from "./reducers/AuthReducer";
+import useAuthStore from "./stores/useAuthStore";
 
 const LoginStatus = () => {
-  const [user, dispatch] = useReducer(authReducer, "");
+  const { user, login, logout } = useAuthStore();
 
   if (user)
     return (
       <>
         <div>
           <span className="mx-2">{user}</span>
-          <a onClick={() => dispatch({ type: "LOGOUT" })} href="#">
+          <a onClick={() => logout()} href="#">
             Logout
           </a>
         </div>
@@ -17,7 +16,7 @@ const LoginStatus = () => {
     );
   return (
     <div>
-      <a onClick={() => dispatch({ type: "LOGIN", name: "Mohammad" })} href="#">
+      <a onClick={() => login("Mohammad")} href="#">
         Login
       </a>
     </div>
