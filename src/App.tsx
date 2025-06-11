@@ -1,5 +1,11 @@
+import Counter from "./state-management/Counter";
+
 const App = () => {
-  return <div>Starter project</div>;
+  return (
+    <>
+      <Counter />
+    </>
+  );
 };
 
 export default App;
