@@ -1,9 +1,9 @@
-import Counter from "./state-management/Counter";
+import LoginStatus from "./state-management/LoginStatus";
 
 const App = () => {
   return (
     <>
-      <Counter />
+      <LoginStatus />
     </>
   );
 };
