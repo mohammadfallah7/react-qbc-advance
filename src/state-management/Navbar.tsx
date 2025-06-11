@@ -1,11 +1,9 @@
 import LoginStatus from "./LoginStatus";
-import type { Task } from "./reducers/TaskReducer";
+import useTasksStore from "./stores/useTasksStore";
 
-interface Props {
-  tasks: Task[];
-}
+const NavBar = () => {
+  const { tasks } = useTasksStore();
 
-const NavBar = ({ tasks }: Props) => {
   return (
     <nav className="navbar d-flex justify-content-between">
       <span className="badge text-bg-secondary">{tasks.length}</span>

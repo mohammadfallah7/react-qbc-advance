@@ -1,21 +1,12 @@
-import { type Dispatch } from "react";
-import { type Task, type TaskAction } from "./reducers/TaskReducer";
+import useTasksStore from "./stores/useTasksStore";
 
-interface Props {
-  tasks: Task[];
-  dispatch: Dispatch<TaskAction>;
-}
+const TaskList = () => {
+  const { tasks, addTask, deleteTask } = useTasksStore();
 
-const TaskList = ({ tasks, dispatch }: Props) => {
   return (
     <>
       <button
-        onClick={() =>
-          dispatch({
-            type: "ADD_TASK",
-            newTask: { id: Date.now(), title: "Task " + Date.now() },
-          })
-        }
+        onClick={() => addTask({ id: Date.now(), title: "Task " + Date.now() })}
         className="btn btn-primary my-3"
       >
         Add Task
@@ -29,7 +20,7 @@ const TaskList = ({ tasks, dispatch }: Props) => {
             <span className="flex-grow-1">{task.title}</span>
             <button
               className="btn btn-outline-danger"
-              onClick={() => dispatch({ type: "DELETE_TASK", id: task.id })}
+              onClick={() => deleteTask(task.id)}
             >
               Delete
             </button>
