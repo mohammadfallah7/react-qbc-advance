@@ -1,13 +1,8 @@
-import HomePage from "./state-management/HomePage";
-import NavBar from "./state-management/Navbar";
+import { RouterProvider } from "react-router";
+import router from "./react-router/router";
 
 const App = () => {
-  return (
-    <>
-      <NavBar />
-      <HomePage />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
