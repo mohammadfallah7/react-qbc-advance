@@ -1,7 +1,13 @@
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
+import useAuth from "./hooks/useAuth";
 
 const ContactPage = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <form
