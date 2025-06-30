@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const NavBar = () => {
   return (
@@ -13,19 +13,44 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link active" to="/">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "nav-link text-danger" : "nav-link"
+                }
+                to="/"
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/users">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-danger nav-link" : "nav-link"
+                }
+                to="/users"
+              >
                 Users
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-danger nav-link" : "nav-link"
+                }
+                to="/contact"
+              >
                 Contact
-              </Link>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-danger nav-link" : "nav-link"
+                }
+                to="/about"
+              >
+                About
+              </NavLink>
             </li>
           </ul>
         </div>

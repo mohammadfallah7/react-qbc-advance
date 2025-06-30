@@ -4,10 +4,13 @@ import UsersPage from "./UsersPage";
 import ContactPage from "./ContactPage";
 import UserDetails from "./UserDetails";
 import Layout from "./Layout";
+import ErrorPage from "./ErrorPage";
+import About from "./About";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage />,
     Component: Layout,
     children: [
       { index: true, Component: HomePage },
@@ -17,6 +20,7 @@ const router = createBrowserRouter([
         children: [{ path: ":id", Component: UserDetails }],
       },
       { path: "contact", Component: ContactPage },
+      { path: "about", Component: About },
     ],
   },
 ]);
