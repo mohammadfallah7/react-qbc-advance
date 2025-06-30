@@ -7,9 +7,15 @@ type AuthStoreType = {
 };
 
 const useAuthStore = create<AuthStoreType>((set) => ({
-  user: "",
-  login: (name: string) => set(() => ({ user: name })),
-  logout: () => set(() => ({ user: "" })),
+  user: localStorage.getItem("token") || "",
+  login: (name: string) => {
+    set(() => ({ user: name }));
+    localStorage.setItem("token", name);
+  },
+  logout: () => {
+    set(() => ({ user: "" }));
+    localStorage.removeItem("token");
+  },
 }));
 
 export default useAuthStore;

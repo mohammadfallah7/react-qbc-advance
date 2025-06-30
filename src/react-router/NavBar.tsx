@@ -1,6 +1,9 @@
 import { Link, NavLink } from "react-router";
+import useAuthStore from "../state-management/stores/useAuthStore";
 
 const NavBar = () => {
+  const { user, logout } = useAuthStore();
+
   return (
     <nav
       className="navbar navbar-expand-lg"
@@ -54,6 +57,15 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
+        {user ? (
+          <button className="btn btn-outline-secondary" onClick={logout}>
+            Logout
+          </button>
+        ) : (
+          <Link to="/login" className="btn btn-success">
+            Login
+          </Link>
+        )}
       </div>
     </nav>
   );
